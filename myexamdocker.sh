@@ -31,3 +31,4 @@ display_help() {
     echo "  Security Ninjas        - OpenDNS Security Ninjas AppSec Training"
     exit 1
 }
+display_help
