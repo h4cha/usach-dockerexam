@@ -4,8 +4,7 @@ ETC_HOSTS=/etc/hosts
 
 # Linea de comandos de ayuda (help) #
 display_help() {
-    echo "Local PentestLab Management Script (Docker based)"
-    echo
+    echo "Mi primer script en bash para abrir un laboratorio de Pentesting(Docker based)"
     echo "Usage: $0 {list|status|info|start|stop} [projectname]" >&2
     echo
     echo " This scripts uses docker and hosts alias to make web apps available on localhost"
