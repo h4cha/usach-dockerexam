@@ -1,35 +1,24 @@
-### Docker-based Hand Labs Test - USACH
+![](http://hpserviciotecnico.com/img/hp-servicio-tecnico-logo-1595932817.jpg)
 
+# Docker-based Hand Labs Test - USACH
 - Bash code created for the administration and management of vulnerable webs based on Docker.
 - The code was created for the Kali-Linux based distribution.
 
 # myexamdocker.sh
-
-![](http://hpserviciotecnico.com/img/hp-servicio-tecnico-logo-1595932817.jpg)
-
-### Docker-based Hand Labs Test - USACH
-
-- Bash code created for the administration and management of vulnerable webs based on Docker.
-- The code was created for the Kali-Linux based distribution.
-
-# myexamdocker.sh
-
-![](http://hpserviciotecnico.com/img/hp-servicio-tecnico-logo-1595932817.jpg)
-
 
 ### Hacking Web Sites and Linux Training:
-    + Metasplotaible2
-    + bWapp
-    + DVWA
+1. Metasplotaible2
+2. bWapp
+3. DVWA
 
 ###Usage
 
 1. Clone the directory
 `$ git clone https://github.com/h4cha/usach-dockerexam.git
 2. Access to directory, grant execution permissions and execute the shell
-`$ cd usach-dockerexam
-`$ chmod +x myexamdocker.sh
-`$ ./myexamdocker.sh [help] [list] [status] [start {metasplotaible2,bwapp,dvwa}] [info {metasplotaible2,bwapp,dvwa}]
+`cd usach-dockerexam`
+`chmod +x myexamdocker.sh`
+`./myexamdocker.sh [help] [list] [status] [start {metasplotaible2,bwapp,dvwa}] [info {metasplotaible2,bwapp,dvwa}]`
 
 ###Modules:
 -------------
