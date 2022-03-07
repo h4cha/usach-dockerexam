@@ -16,6 +16,7 @@
 1. Clone the directory
 `$ git clone https://github.com/h4cha/usach-dockerexam.git
 2. Access to directory, grant execution permissions and execute the shell
+
 `cd usach-dockerexam`
 
 `chmod +x myexamdocker.sh`
