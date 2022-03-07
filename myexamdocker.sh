@@ -10,14 +10,14 @@ display_help() {
     echo
     echo " This script needs Docker and aliases in the host file to make web applications available"
     echo 
-    echo " Ex."
+    echo " Example:"
     echo " $0 list				List all available projects"
     echo " $0 status			Show status for all projects"
     echo " $0 start bwapp			Start project and make it available on localhost" 
     echo " $0 info bwapp			Show information about bwapp project"
     echo
-    echo " Dockerfiles from:"
-	echo "  Metasploitable2                  - tleemcjr (tleemcjr/metasploitable2)"
+    echo " Docker containers (Source: Docker.com):"
+	echo "  Metasploitable2        - tleemcjr (tleemcjr/metasploitable2)"
 	echo "  DVWA                   - Ryan Dewhurst (vulnerables/web-dvwa)"
     echo "  bWapp                  - Rory McCune (raesene/bwapp)"
     exit 1
@@ -32,7 +32,6 @@ if ! [ -x "$(command -v docker)" ]; then
   echo "sudo apt update"
   echo "sudo apt install -y docker.io"
   echo "sudo sytemctl enable docker --now"
-  echo "In the same repo at https://github.com/itboxltda/pentestlab"
   exit
 fi
 
@@ -185,9 +184,7 @@ project_startinfo_dvwa ()
 }
 
 
-#########################
-# Common start          #
-#########################
+## Common start          ##
 project_start ()
 {
   fullname=$1		# ex. WebGoat 7.1
@@ -221,9 +218,7 @@ project_start ()
 }
 
 
-#########################
-# Common stop           #
-#########################
+## Common stop           ##
 project_stop ()
 {
   fullname=$1	# ex. WebGoat 7.1
@@ -297,9 +292,7 @@ project_stop_dispatch()
 }
 
 
-#########################
-# Main switch case      #
-#########################
+## Main switch case      ##
 case "$1" in
   start)
     if [ -z "$2" ]
