@@ -51,7 +51,7 @@ fi
 ## List all pentest apps ##
 list() {
     echo "Available pentest applications" >&2
-	echo "  Metasploitable2     		- Metasploitable is an intentionally vulnerable Linux virtual machine"
+	echo "  Metasploitable2    		- Metasploitable is an intentionally vulnerable Linux virtual machine"
 	echo "  bwapp 		- bWAPP PHP/MySQL based from itsecgames.com"
     echo "  dvwa     		- Damn Vulnerable Web Application"
     echo
@@ -237,7 +237,7 @@ project_status()
   if [ "$(sudo docker ps -q -f name=metasploitable2)" ]; then
     echo "Metasploitable2				running at http://metasploitable2"
   else 
-    echo "Metasploitable2				not running"  
+    echo "Metasploitable2			not running"  
   fi
   if [ "$(sudo docker ps -q -f name=bwapp)" ]; then
     echo "bWaPP				running at http://bwapp"
