@@ -7,11 +7,10 @@ ETC_HOSTS=/etc/hosts
 # The command line help #
 #########################
 display_help() {
-    echo "Local PentestLab Management Script (Docker based)"
+    echo "Labs to practice Docker-based Web Pentesting"
+    echo "How to use: $0 {list|status|info|start|stop} [projectname]" >&2
     echo
-    echo "Usage: $0 {list|status|info|start|stop} [projectname]" >&2
-    echo
-    echo " This scripts uses docker and hosts alias to make web apps available on localhost"
+    echo " This script needs Docker and aliases in the host file to make web applications available"
     echo 
     echo " Ex."
     echo " $0 list"
@@ -25,13 +24,13 @@ display_help() {
     echo
     echo " Dockerfiles from:"
     echo "  DVWA                   - Ryan Dewhurst (vulnerables/web-dvwa)"
-    echo "  Mutillidae II          - Nikolay Golub (citizenstig/nowasp)"
+#    echo "  Mutillidae II          - Nikolay Golub (citizenstig/nowasp)"
     echo "  bWapp                  - Rory McCune (raesene/bwapp)"
-    echo "  Webgoat(s)             - OWASP Project"
-    echo "  NodeGoat		   - Ben McMahon (bjm243/nodegoat)"
-    echo "  Juice Shop             - Bjoern Kimminich (bkimminich/juice-shop)"
-    echo "  Vulnerable Wordpress   - WPScan Team (l505/vulnerablewordpress)"
-    echo "  Security Ninjas        - OpenDNS Security Ninjas AppSec Training"
+#    echo "  Webgoat(s)             - OWASP Project"
+#    echo "  NodeGoat		   - Ben McMahon (bjm243/nodegoat)"
+#    echo "  Juice Shop             - Bjoern Kimminich (bkimminich/juice-shop)"
+#    echo "  Vulnerable Wordpress   - WPScan Team (l505/vulnerablewordpress)"
+#    echo "  Security Ninjas        - OpenDNS Security Ninjas AppSec Training"
     exit 1
 }
 
