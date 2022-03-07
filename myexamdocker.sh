@@ -11,13 +11,14 @@ display_help() {
     echo " This script needs Docker and aliases in the host file to make web applications available"
     echo 
     echo " Ex."
-    echo " $0 list			List all available projects"
+    echo " $0 list				List all available projects"
     echo " $0 status			Show status for all projects"
     echo " $0 start bwapp			Start project and make it available on localhost" 
     echo " $0 info bwapp			Show information about bwapp project"
     echo
     echo " Dockerfiles from:"
-    echo "  DVWA                   - Ryan Dewhurst (vulnerables/web-dvwa)"
+	echo "  Metasploitable2                  - tleemcjr (tleemcjr/metasploitable2)"
+	echo "  DVWA                   - Ryan Dewhurst (vulnerables/web-dvwa)"
     echo "  bWapp                  - Rory McCune (raesene/bwapp)"
     exit 1
 }
@@ -51,7 +52,8 @@ fi
 ## List all pentest apps ##
 list() {
     echo "Available pentest applications" >&2
-    echo "  bwapp 		- bWAPP PHP/MySQL based from itsecgames.com"
+	echo "  Metasploitable2     		- Metasploitable is an intentionally vulnerable Linux virtual machine"
+	echo "  bwapp 		- bWAPP PHP/MySQL based from itsecgames.com"
     echo "  dvwa     		- Damn Vulnerable Web Application"
     echo
     exit 1
@@ -61,7 +63,10 @@ list() {
 ## Info dispatch         ##
 info () {
   case "$1" in 
-    bwapp)
+    metasploitable2)
+      project_info_metasploitable2
+      ;;
+	bwapp)
       project_info_bwapp
       ;;
     dvwa)
@@ -106,6 +111,28 @@ function addhost() { # ex.   127.5.0.1	bwapp
 }
 
 ### PROJECT INFO & STARTUP##
+project_info_metasploitable2 () 
+{
+echo "Metasploitable2 is a test environment provides a secure place to perform penetration testing and security research."
+echo "For your test environment, you need a Metasploit instance that can access a vulnerable target."
+echo 
+echo "Metasploitable2 docker image for use in GNS3"
+echo "Based off of meknisa/metasploitable-base. I didn't complain, I just made the services start, well most of them."
+echo
+echo "Have most of the services running except: Bind9 (requires older kernel modules) NSF (requires older kernel modules)"
+echo "Klogd (could get to run after removing /var/run/klogd/kmsg but hung are container restart). The JSP and grmiregistry"
+echo "services run but not showing in nmap localhost."
+echo "Rest should be running."
+echo
+echo "Rapid7"
+echo "    https://docs.rapid7.com/metasploit/metasploitable-2/"
+}
+project_startinfo_metasploitable2 () 
+{
+  echo "If you run this in Docker use something like this:"
+  echo "docker run --name container-name -it tleemcjr/metasploitable2:latest sh -c /bin/services.sh && bash"
+}
+
 project_info_bwapp () 
 {
 echo "bWAPP, or a buggy web application, is a free and open source deliberately insecure web application."
@@ -212,6 +239,11 @@ project_stop ()
 
 project_status()
 {
+  if [ "$(sudo docker ps -q -f name=metasploitable2)" ]; then
+    echo "Metasploitable2				running at http://metasploitable2"
+  else 
+    echo "Metasploitable2				not running"  
+  fi
   if [ "$(sudo docker ps -q -f name=bwapp)" ]; then
     echo "bWaPP				running at http://bwapp"
   else 
@@ -228,6 +260,10 @@ project_status()
 project_start_dispatch()
 {
   case "$1" in
+    metasploitable2)
+      project_start "Metasploitable2" "metasploitable2" "tleemcjr/metasploitable2" "127.4.0.1" "80"
+      project_startinfo_metasploitable2
+    ;;
     bwapp)
       project_start "bWAPP" "bwapp" "raesene/bwapp" "127.5.0.1" "80"
       project_startinfo_bwapp
@@ -245,6 +281,9 @@ project_start_dispatch()
 project_stop_dispatch()
 {
   case "$1" in
+    metasploitable2)
+      project_stop "Metasploitable2" "metasploitable2"
+    ;;
     bwapp)
       project_stop "bWAPP" "bwapp"
     ;;
