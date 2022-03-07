@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 ETC_HOSTS=/etc/hosts
 
 ## Help Command ##
@@ -264,7 +262,7 @@ project_start_dispatch()
       project_startinfo_bwapp
     ;;
     dvwa)
-      project_start "Damn Vulnerable Web Appliaction" "dvwa" "vulnerables/web-dvwa" "127.9.0.1" "80"
+      project_start "Damn Vulnerable Web Appliaction" "dvwa" "vulnerables/web-dvwa" "127.6.0.1" "80"
       project_startinfo_dvwa
     ;;    
     *)
