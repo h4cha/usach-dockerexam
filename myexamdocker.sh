@@ -399,7 +399,7 @@ project_stop ()
 project_status()
 {
   if [ "$(sudo docker ps -q -f name=bwapp)" ]; then
-    echo "bWaPP				running at http://bwapp"
+    echo "bWaPP				running at http://bwapp $1 $2"
   else 
     echo "bWaPP				not running"
   fi
