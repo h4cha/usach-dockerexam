@@ -51,7 +51,7 @@ fi
 ## List all pentest apps ##
 list() {
     echo "Available pentest applications" >&2
-	echo "  Metasploitable2    		- Metasploitable is an intentionally vulnerable Linux virtual machine"
+	echo "  Metasploitable2			- Metasploitable is an intentionally vulnerable Linux virtual machine"
 	echo "  bwapp 		- bWAPP PHP/MySQL based from itsecgames.com"
     echo "  dvwa     		- Damn Vulnerable Web Application"
     echo
